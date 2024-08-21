@@ -1,0 +1,38 @@
+dataset:
+  class: CR3022
+  path: ./data/CR3022
+  node_feature: residue_symbol
+  residue_feature: default
+  split:
+    test_sets: 
+      - 6xc3_ba11_renum.pdb_C_HL
+      - 6xc3_ba4_renum.pdb_C_HL
+      - 6xc3_wt_renum.pdb_C_HL
+
+task:
+  class: BindingAffinityChange
+  model:
+    class: DDGPredictor
+    hidden_dim: 128
+    pair_dim: 64
+    max_relpos: 32
+    num_layers: 2
+  normalization: False
+  task: [ddG]
+  criterion: mse
+  metric: ["mae", "rmse", "spearmanr", "pearsonr"]
+
+optimizer:
+  class: Adam
+  lr: 1.0e-4
+
+engine:
+  gpus: [0]
+  batch_size: 8
+
+checkpoints:
+  - ./checkpoints/bindddg0.pth
+  - ./checkpoints/bindddg1.pth
+  - ./checkpoints/bindddg2.pth
+  - ./checkpoints/bindddg3.pth
+  - ./checkpoints/bindddg4.pth

@@ -1,0 +1,4 @@
+pdb_fname,chain_a,chain_b,segments
+6xc3_wt.pdb,HL,C,H26-35;H50-66;H99-108;L24-40;L56-62;L95-103
+6xc3_ba11.pdb,HL,C,H26-35;H50-66;H99-108;L24-40;L56-62;L95-103
+6xc3_ba4.pdb,HL,C,H26-35;H50-66;H99-108;L24-40;L56-62;L95-103
